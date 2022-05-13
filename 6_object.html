@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //객체, 여러 속성 가짐, 키와 값의 조합
+        const person = {
+            id : 1,
+            name : '거북이',
+            age : 28
+        };
+
+        // id : 1 --> 속성    id ---> 키    1 ---> 값
+        //데이터 타입의 제한이 없음
+
+        //객체 복사
+        const copied = Object.assign({}, person);
+        const copied2 = {...person};
+        console.log(copied);
+        console.log(copied2);
+        //얕은 복사 --> 복사 대상의 주소를 참조하는 것, 대상이 수정되면 바뀜
+        
+    </script>
+</body>
+</html>

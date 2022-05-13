@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea class="textarea"></textarea>
+    <p>현재 <span class="string_num">0</span>글자를 입력하셨습니다.</p>
+    <script>
+        //문자열은 ', ", ` 로 감싸며 타입은 String 이다.
+        // `안에서는 변수를 바로 사용할 수 있다.
+
+
+
+
+
+        //길이 확인하기
+        console.log('안녕하세요.'.length);
+
+        //입력한 텍스트 숫자 세기
+        let textarea = document.querySelector('.textarea');
+        let string_num = document.querySelector('.string_num');
+        function onKeyUp(){
+            const inputText = textarea.value;
+            string_num.innerText = inputText.length;
+        }
+
+        textarea.addEventListener('keyup', onKeyUp);
+        //키보드 눌렀다가 뗄 때 이벤트 발생
+
+        //추가: 이모티콘 같은 경우는 length로 확인 시 1이 아님
+        // surrogate pair이기 때문(4바이트)
+        //Array.form() 을 사용해야 하나로 인식
+
+
+        //양 끝의 공백 제거 (중간은 제거 안됨)
+        console.log('   안녕하세요    '.trim());
+
+
+        // *********
+        //문자열 검색하기
+        const stringA = 'ABCDEFGhiJKlmNhOP';
+        console.log(stringA.indexOf('h'));
+        //앞에 있는 애를 찾아서 몇번째인지
+        console.log(stringA.lastIndexOf('h'));
+        //뒤에 있는 애를 찾음
+        // *********
+    </script>
+</body>
+</html>

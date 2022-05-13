@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시계</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        body{
+            background-color: #000;
+        }
+        .digital{
+            width: 80%;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding-top: 200px;
+        }
+        h2{
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+        }
+        .clock{
+            border-radius: 50%;
+            border: 3px solid white;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255,255,255,0.1);
+            margin: 0 auto;
+            margin-top: 80px;
+            position: relative;
+        }
+        .hour{
+            width: 10px;
+            height: 150px;
+            background-color: #fff;
+            position: absolute;
+            top: calc(50% - 150px);
+            left: calc(50% - 5px);
+            transform-origin: bottom;
+        }
+        .min{
+            width: 4px;
+            height: 200px;
+            background-color: #fff;
+            position: absolute;
+            top: calc(50% - 200px);
+            left: calc(50% - 2px);
+            transform-origin: bottom;
+        }
+        .sec{
+            width: 2px;
+            height: 200px;
+            background-color: #ccc;
+            position: absolute;
+            top: calc(50% - 200px);
+            left: calc(50% - 1px);
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+<body>
+    <div class="digital">
+        <h2><span class="h">0</span>시 <span class="m">0</span>분 <span class="s">0</span>초</h2>
+    </div>
+
+    <div class="clock">
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+    </div>
+    
+    <script>
+        setInterval(() => {
+            const now = new Date();
+
+            //단위
+            const h = now.getHours();
+            const m = now.getMinutes();
+            const s = now.getSeconds();
+
+            const degH = h * (360 / 12) + m * (360 / 12 / 60);
+            const degM = m * (360 / 60);
+            const degS = s * (360 / 60);
+
+            const lineH = document.querySelector('.hour')
+            const lineM = document.querySelector('.min')
+            const lineS = document.querySelector('.sec')
+            const textH = document.querySelector('.h')
+            const textM = document.querySelector('.m')
+            const textS = document.querySelector('.s')
+
+            lineH.style.transform = `rotate(${degH}deg)`;
+            lineM.style.transform = `rotate(${degM}deg)`;
+            lineS.style.transform = `rotate(${degS}deg)`;
+            textH.innerText = h;
+            textM.innerText = m;
+            textS.innerText = s;
+            if(h == 16 && m == 55){
+                alert('종료 5분전');
+                body.style.backgroundColor = 'red';
+            }
+            if(h == 17 && m == 55){
+                alert('종료 5분전');
+                document.body.style.backgroundColor = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang=ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = '이재상';   // let은 변수로 초기화 생략 가능
+        name = '이재성'; // 값 변경 가능
+
+        const age = 26; // const는 상수로 초기화 생략 불가능
+        //age = 24;    값 변경 불가능
+
+        const myArray = ['사자', '곰', '토끼'];
+        console.log(myArray[2]);
+        myArray[2] = '호랑이';
+        console.log(myArray[2]);
+
+        const myObject = {
+            id : 'kkb04182',
+            pw : 'seceret'
+        }
+        console.log(myObject.id);
+        myObject.id = 'js971221';
+        console.log(myObject.id);
+        //배열과 object 내부의 값은 변경 가능
+
+        //값 변경이 필요한 데이터에만 let 사용하고 나머지는 const 쓰자
+        //데이터 구분이 편하다
+
+    </script>
+</body>
+</html>
